@@ -1,0 +1,84 @@
+.container-modal-edit {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(61, 61, 61, 0.48);
+}
+
+.modal-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 611px;
+  padding: 56px 63px 40px 63px;
+  border-radius: 20px;
+
+  font-family: "Rubik", sans-serif;
+
+  background: #ffffff;
+}
+
+.modal-edit__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+.modal-edit__title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 43px;
+}
+
+.modal-edit__form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modal-edit__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+.modal-edit__btn {
+  width: 236px;
+  height: 46px;
+  border-radius: 5px;
+
+  font-family: "Rubik", sans-serif;
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #ffffff;
+  background: #7978d9;
+}
+
+.card__warning {
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: crimson;
+}

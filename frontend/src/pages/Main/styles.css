@@ -1,0 +1,103 @@
+.container-main {
+  height: 100vh;
+
+  background: linear-gradient(90.23deg, #05ede3 0.02%, #645ffb 99.63%);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile__name {
+  margin-right: 16px;
+
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: var(--color-text-white);
+}
+
+.main {
+  display: flex;
+
+  min-height: calc(100vh - 129px);
+  margin-top: 32px;
+  padding: 55px 100px 0 105px;
+  border-radius: 60px 60px 0px 0px;
+
+  background: var(--bd-white);
+}
+
+.main__content {
+  display: flex;
+  flex-direction: column;
+
+  width: 940px;
+  margin-right: 34px;
+}
+
+.btn-filter {
+  display: flex;
+  gap: 4px;
+
+  width: 80px;
+  margin-bottom: 26px;
+  padding: 14px 8px 14px 8px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.1);
+
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+
+  background: #fafafa;
+}
+
+.btn-filter__img {
+  width: 14px;
+}
+
+.filter__btn-apply {
+  padding: 8px 11px;
+  box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #ffffff;
+  background: #7978d9;
+}
+
+.table {
+  width: 100%;
+}
+
+.table__top {
+  height: 58px;
+  box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  background: #fafafa;
+}
+
+.table__arrow {
+  margin-left: 4px;
+}
+
+.table__topic {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+}

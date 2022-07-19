@@ -1,0 +1,150 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 108px;
+
+  font-family: "Rubik", sans-serif;
+}
+
+.login__signup {
+  width: 614px;
+  padding-right: 91px;
+}
+
+.login__title {
+  margin-bottom: 33px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 62px;
+
+  color: var(--color-text-white);
+}
+
+.login__bold {
+  color: var(--color-purple-primary);
+}
+
+.login__subtitle {
+  margin-bottom: 43px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+
+  color: var(--color-text-white);
+}
+
+.login__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 284px;
+  height: 52px;
+  border-radius: 5px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: var(--color-text-white);
+  background: var(--color-purple-primary);
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .login {
+    padding-top: 10vh;
+  }
+
+  .login__title {
+    margin-bottom: 23px;
+
+    font-size: 38px;
+    line-height: 48px;
+  }
+
+  .login__subtitle {
+    margin-bottom: 38px;
+
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .login__signup {
+    width: 48vw;
+    padding-right: 4vw;
+  }
+
+  .login__btn {
+    width: 20vw;
+    height: 52px;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .login {
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 34px;
+  }
+
+  .login__title {
+    margin-bottom: 23px;
+
+    text-align: center;
+    font-size: 38px;
+    line-height: 48px;
+  }
+
+  .login__subtitle {
+    margin-bottom: 38px;
+
+    text-align: center;
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .login__signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    padding-right: 0;
+    padding-bottom: 50px;
+  }
+
+  .login__btn {
+    width: 20vw;
+    height: 52px;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+}

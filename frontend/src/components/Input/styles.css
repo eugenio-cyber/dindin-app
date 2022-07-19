@@ -1,0 +1,37 @@
+.input-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-area__label {
+  margin-bottom: 8px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: var(--color-text-black);
+}
+
+.input-area__input {
+  width: 449px;
+  height: 63px;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #555555;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: var(--color-text-black);
+  background: var(--bd-white);
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .input-area__input {
+    width: 34vw;
+  }
+}

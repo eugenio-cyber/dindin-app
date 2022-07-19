@@ -1,0 +1,39 @@
+:root {
+  --bd-white: #ffffff;
+  --color-text-white: #ffffff;
+  --color-text-black: #484848;
+  --color-purple-primary: #7978d9;
+  --color-purple-secondary: #7b61ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.container-img {
+  min-height: 100vh;
+
+  background: url("./assets/background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 41px 100px 0 100px;
+}

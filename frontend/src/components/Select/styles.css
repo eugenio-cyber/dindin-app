@@ -1,0 +1,32 @@
+.select-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.select-area__label {
+  margin-bottom: 8px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: var(--color-text-black);
+}
+
+.select-area__select {
+  width: 449px;
+  height: 63px;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #555555;
+
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #484848;
+  background: var(--bd-white);
+}

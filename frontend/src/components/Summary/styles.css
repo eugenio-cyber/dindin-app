@@ -1,0 +1,120 @@
+.summary {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary__body {
+  width: 236px;
+  padding: 26px 33px 32px 33px;
+  margin-bottom: 16px;
+  box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  background: #fafafa;
+}
+
+.summary__title {
+  margin-bottom: 23px;
+
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #2f2f2f;
+}
+
+.summary__btn {
+  border-radius: 5px;
+  padding: 11px 47px 11px 47px;
+
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #ffffff;
+  background: #7978d9;
+}
+
+.revenues {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+}
+
+.revenues__subtitle {
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+
+  color: #2f2f2f;
+}
+
+.revenues__value {
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+
+  color: #645ffb;
+}
+
+.expenses {
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 19px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.expenses__subtitle {
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+
+  color: #2f2f2f;
+}
+
+.expenses__value {
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+}
+
+.balance {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 16px;
+}
+
+.balance__subtitle {
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #2f2f2f;
+}
+
+.balance__value {
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #3a9ff1;
+}
