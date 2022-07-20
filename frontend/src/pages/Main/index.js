@@ -339,7 +339,12 @@ const Main = () => {
   return (
     <div className="container-main">
       <header className="header">
-        <img className=" cursor-pointer" src={Logo} alt="Ícone da logo" />
+        <img
+          className=" cursor-pointer"
+          onClick={() => navigate("/")}
+          src={Logo}
+          alt="Ícone da logo"
+        />
         <div className="profile">
           <img
             className=" cursor-pointer"

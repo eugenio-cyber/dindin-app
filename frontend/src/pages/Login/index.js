@@ -19,7 +19,12 @@ const Login = () => {
   return (
     <div className="container-img">
       <header className="header">
-        <img className="" src={Logo} alt="Ícone da logo" />
+        <img
+          src={Logo}
+          alt="Ícone da logo"
+          className="cursor-pointer"
+          onClick={() => navigate("/")}
+        />
       </header>
       <main className="login">
         <section className="login__signup">

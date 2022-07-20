@@ -7,7 +7,11 @@ import "./styles.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const [showWarningPassword, setShowWarningPassword] = useState(false);
+  const [warning, setWarning] = useState({
+    active: false,
+    content: "",
+    tipe: "",
+  });
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -19,28 +23,55 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
+      const localWarning = { ...warning };
+
       if (form.password !== form.confirmPassword) {
-        return setShowWarningPassword(true);
+        localWarning.active = true;
+        localWarning.content = "As senhas precisam ser iguais.";
+        localWarning.tipe = "error";
+
+        return setWarning({ ...localWarning });
       }
 
-      setShowWarningPassword(false);
+      localWarning.active = false;
+      localWarning.content = "";
+      localWarning.tipe = "";
+      setWarning({ ...localWarning });
 
-      const response = await api.post("/usuario", {
+      await api.post("/usuario", {
         nome: form.name,
         email: form.email,
         senha: form.password,
       });
 
-      navigate("/");
+      localWarning.active = true;
+      localWarning.content = "Usuário cadastrado com sucesso.";
+      localWarning.tipe = "accepted";
+      setWarning({ ...localWarning });
+
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
     } catch (error) {
-      alert(error.message);
+      const localWarning = { ...warning };
+
+      localWarning.active = true;
+      localWarning.content = error.response.data.message;
+      localWarning.tipe = "error";
+
+      setWarning({ ...localWarning });
     }
   };
 
   return (
     <div className="container-img">
       <header className="header">
-        <img className="logo" src={Logo} alt="Ícone da logo" />
+        <img
+          className="cursor-pointer"
+          src={Logo}
+          alt="Ícone da logo"
+          onClick={() => navigate("/")}
+        />
       </header>
       <main className="signup">
         <section className="card">
@@ -75,9 +106,13 @@ const SignUp = () => {
                 setState={setForm}
                 state={form}
               />
-              {showWarningPassword && (
-                <span className="card__warning">
-                  As senhas precisam ser iguais.
+              {warning.active && (
+                <span
+                  className={
+                    warning.tipe === "error" ? "card__error" : "card__accepted"
+                  }
+                >
+                  {warning.content}
                 </span>
               )}
             </div>
@@ -85,13 +120,9 @@ const SignUp = () => {
           </form>
           <span className="card__register">
             Já tem cadastro?
-            <a
-              className="cursor-pointer"
-              href="/"
-              onClick={() => navigate("/")}
-            >
-              Clique aqui!
-            </a>
+            <span className="cursor-pointer" onClick={() => navigate("/")}>
+              ⠀Clique aqui!
+            </span>
           </span>
         </section>
       </main>
