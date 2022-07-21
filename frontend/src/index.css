@@ -37,3 +37,20 @@ button {
 
   padding: 41px 100px 0 100px;
 }
+
+.card__error,
+.card__accepted {
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 8px;
+}
+
+.card__error {
+  color: crimson;
+}
+
+.card__accepted {
+  color: greenyellow;
+}

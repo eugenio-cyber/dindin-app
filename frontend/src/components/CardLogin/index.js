@@ -7,6 +7,11 @@ import "./styles.css";
 
 const CardLogin = () => {
   const navigate = useNavigate();
+  const [warning, setWarning] = useState({
+    active: false,
+    content: "",
+    tipe: "",
+  });
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -16,6 +21,8 @@ const CardLogin = () => {
     e.preventDefault();
 
     try {
+      const localWarning = { ...warning };
+
       const response = await api.post("/login", {
         email: form.email,
         senha: form.password,
@@ -25,9 +32,23 @@ const CardLogin = () => {
 
       setItem("token", token);
 
-      navigate("/main");
+      localWarning.active = true;
+      localWarning.content = "Login feito com sucesso.";
+      localWarning.tipe = "accepted";
+      setWarning({ ...localWarning });
+
+      setTimeout(() => {
+        navigate("/main");
+      }, 1000);
     } catch (error) {
-      alert(error.message);
+      const localWarning = { ...warning };
+
+      localWarning.active = true;
+      localWarning.content = error.response.data;
+      localWarning.tipe = "error";
+
+      setWarning({ ...localWarning });
+      console.log(error);
     }
   };
 
@@ -50,6 +71,15 @@ const CardLogin = () => {
             setState={setForm}
             state={form}
           />
+          {warning.active && (
+            <span
+              className={
+                warning.tipe === "error" ? "card__error" : "card__accepted"
+              }
+            >
+              {warning.content}
+            </span>
+          )}
         </div>
         <button className="card-login__btn">Entrar</button>
       </form>
