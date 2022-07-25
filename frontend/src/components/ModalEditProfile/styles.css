@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
 
-  background: rgba(61, 61, 61, 0.48);
+  background: var(--background-modal);
 }
 
 .modal-edit {
@@ -21,7 +21,7 @@
   padding: 56px 63px 40px 63px;
   border-radius: 20px;
 
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
 
   background: #ffffff;
 }
@@ -62,7 +62,7 @@
   height: 46px;
   border-radius: 5px;
 
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
   text-align: center;
   font-style: normal;
   font-weight: 700;
@@ -80,5 +80,5 @@
   font-size: 14px;
   line-height: 17px;
 
-  color: crimson;
+  color: var(--message-error);
 }

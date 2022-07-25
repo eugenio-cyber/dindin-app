@@ -11,7 +11,7 @@
   font-size: 18px;
   line-height: 21px;
 
-  color: var(--color-text-black);
+  color: var(--text-black);
 }
 
 .select-area__select {
@@ -21,12 +21,12 @@
   border-radius: 5px;
   border: 1px solid #555555;
 
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
 
-  color: #484848;
+  color: var(--text-black);
   background: var(--bd-white);
 }

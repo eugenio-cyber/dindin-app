@@ -11,7 +11,7 @@
   font-size: 18px;
   line-height: 21px;
 
-  color: var(--color-text-black);
+  color: var(--text-black);
 }
 
 .input-area__input {
@@ -26,8 +26,8 @@
   font-size: 18px;
   line-height: 21px;
 
-  color: var(--color-text-black);
-  background: var(--bd-white);
+  color: var(--text-black);
+  background: var(--background-white);
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1439px) {

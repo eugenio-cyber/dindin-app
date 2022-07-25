@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { getItem } from "../../utils/storage";
-import api from "../../services/api";
-import Input from "../Input";
-import Close from "../../assets/close.png";
-import "./styles.css";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getItem } from '../../utils/storage';
+import api from '../../services/api';
+import Input from '../Input';
+import Close from '../../assets/close.png';
+import './styles.css';
 
 const ModalEditProfile = ({ setShowModalEditProfile, currentUser }) => {
   const navigate = useNavigate();
@@ -12,8 +12,8 @@ const ModalEditProfile = ({ setShowModalEditProfile, currentUser }) => {
   const [form, setForm] = useState({
     name: currentUser.nome,
     email: currentUser.email,
-    password: "",
-    confirmPassword: "",
+    password: '',
+    confirmPassword: '',
   });
 
   const handleSubmit = async (e) => {
@@ -27,7 +27,7 @@ const ModalEditProfile = ({ setShowModalEditProfile, currentUser }) => {
       setShowWarningPassword(false);
 
       const response = await api.put(
-        "/usuario",
+        '/usuario',
         {
           nome: form.name,
           email: form.email,
@@ -35,7 +35,7 @@ const ModalEditProfile = ({ setShowModalEditProfile, currentUser }) => {
         },
         {
           headers: {
-            Authorization: "Bearer " + getItem("token"),
+            Authorization: 'Bearer ' + getItem('token'),
           },
         }
       );

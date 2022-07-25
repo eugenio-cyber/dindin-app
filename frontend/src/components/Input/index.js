@@ -1,4 +1,4 @@
-import "./styles.css";
+import './styles.css';
 
 const Input = ({ label, type, id, value, setState, state }) => {
   const handleChangeInput = (e) => {

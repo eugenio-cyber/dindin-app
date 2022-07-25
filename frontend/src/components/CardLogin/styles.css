@@ -18,7 +18,7 @@
   font-size: 28px;
   line-height: 33px;
 
-  color: var(--color-purple-primary);
+  color: var(--purple-primary);
 }
 
 .card-login__inputs {
@@ -40,8 +40,8 @@
   font-size: 14px;
   line-height: 17px;
 
-  color: var(--color-text-white);
-  background: var(--color-purple-primary);
+  color: var(--text-white);
+  background: var(--purple-primary);
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1439px) {

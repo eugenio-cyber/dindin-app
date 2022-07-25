@@ -12,13 +12,13 @@
 .profile__name {
   margin-right: 16px;
 
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
 
-  color: var(--color-text-white);
+  color: var(--text-white);
 }
 
 .main {
@@ -29,7 +29,7 @@
   padding: 55px 100px 0 105px;
   border-radius: 60px 60px 0px 0px;
 
-  background: var(--bd-white);
+  background: var(--background-white);
 }
 
 .main__content {
@@ -50,7 +50,7 @@
   border-radius: 10px;
   box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.1);
 
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
@@ -68,7 +68,7 @@
   box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 
-  font-family: "Lato";
+  font-family: 'Lato';
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
@@ -95,7 +95,7 @@
 }
 
 .table__topic {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;

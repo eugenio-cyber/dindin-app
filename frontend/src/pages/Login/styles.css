@@ -5,7 +5,7 @@
 
   padding-top: 108px;
 
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 .login__signup {
@@ -21,11 +21,11 @@
   font-size: 52px;
   line-height: 62px;
 
-  color: var(--color-text-white);
+  color: var(--text-white);
 }
 
 .login__bold {
-  color: var(--color-purple-primary);
+  color: var(--purple-primary);
 }
 
 .login__subtitle {
@@ -36,7 +36,7 @@
   font-size: 28px;
   line-height: 33px;
 
-  color: var(--color-text-white);
+  color: var(--text-white);
 }
 
 .login__btn {
@@ -56,8 +56,8 @@
   align-items: center;
   text-align: center;
 
-  color: var(--color-text-white);
-  background: var(--color-purple-primary);
+  color: var(--text-white);
+  background: var(--purple-primary);
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1439px) {

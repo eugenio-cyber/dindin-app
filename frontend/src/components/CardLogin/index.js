@@ -1,20 +1,20 @@
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import api from "../../services/api";
-import { setItem } from "../../utils/storage";
-import Input from "../Input";
-import "./styles.css";
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import api from '../../services/api';
+import { setItem } from '../../utils/storage';
+import Input from '../Input';
+import './styles.css';
 
 const CardLogin = () => {
   const navigate = useNavigate();
   const [warning, setWarning] = useState({
     active: false,
-    content: "",
-    tipe: "",
+    content: '',
+    tipe: '',
   });
   const [form, setForm] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   const handleSubmit = async (e) => {
@@ -23,29 +23,29 @@ const CardLogin = () => {
     try {
       const localWarning = { ...warning };
 
-      const response = await api.post("/login", {
+      const response = await api.post('/login', {
         email: form.email,
         senha: form.password,
       });
 
       const { token } = response.data;
 
-      setItem("token", token);
+      setItem('token', token);
 
       localWarning.active = true;
-      localWarning.content = "Login feito com sucesso.";
-      localWarning.tipe = "accepted";
+      localWarning.content = 'Login feito com sucesso.';
+      localWarning.tipe = 'accepted';
       setWarning({ ...localWarning });
 
       setTimeout(() => {
-        navigate("/main");
+        navigate('/main');
       }, 1000);
     } catch (error) {
       const localWarning = { ...warning };
 
       localWarning.active = true;
       localWarning.content = error.response.data;
-      localWarning.tipe = "error";
+      localWarning.tipe = 'error';
 
       setWarning({ ...localWarning });
       console.log(error);
@@ -74,7 +74,7 @@ const CardLogin = () => {
           {warning.active && (
             <span
               className={
-                warning.tipe === "error" ? "card__error" : "card__accepted"
+                warning.tipe === 'error' ? 'card__error' : 'card__accepted'
               }
             >
               {warning.content}

@@ -5,7 +5,7 @@
 
   margin-top: 62px;
 
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 .card {
@@ -29,7 +29,7 @@
   font-size: 28px;
   line-height: 33px;
 
-  color: var(--color-purple-primary);
+  color: var(--purple-primary);
 }
 
 .card__form {
@@ -56,20 +56,20 @@
   font-size: 14px;
   line-height: 17px;
 
-  color: var(--color-text-white);
-  background: var(--color-purple-primary);
+  color: var(--text-white);
+  background: var(--purple-primary);
 }
 
 .card__register,
 .card__register a {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   text-decoration: none;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
 
-  color: var(--color-purple-secondary);
+  color: var(--purple-secondary);
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
