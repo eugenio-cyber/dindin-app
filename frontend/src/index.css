@@ -1,6 +1,6 @@
 :root {
   --background-white: #ffffff;
-  --text-white: #ffffff;
+  --text-white: #fafafa;
   --text-black: #484848;
   --purple-primary: #7978d9;
   --purple-secondary: #7b61ff;
@@ -51,9 +51,9 @@ button {
 }
 
 .card__error {
-  color: var(message-error);
+  color: var(--message-error);
 }
 
 .card__accepted {
-  color: var(message-accepted);
+  color: var(--message-accepted);
 }

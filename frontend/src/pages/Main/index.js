@@ -1,19 +1,19 @@
-import { format, parseISO } from "date-fns";
-import { useEffect, useState } from "react";
-import { getItem, removeItem } from "../../utils/storage";
-import { useNavigate } from "react-router";
-import RowColumn from "../../components/RowColumn";
-import Summary from "../../components/Summary";
-import ModalEditProfile from "../../components/ModalEditProfile";
-import ModalRecord from "../../components/ModalRecord";
-import api from "../../services/api";
-import Logo from "../../assets/logo.png";
-import Avatar from "../../assets/avatar.png";
-import Exit from "../../assets/exit.png";
-import Filter from "../../assets/filter.png";
-import Arrow from "../../assets/arrow.png";
-import SectionFilter from "../../components/SectionFilter";
-import "./styles.css";
+import { format, parseISO } from 'date-fns';
+import { useEffect, useState } from 'react';
+import { getItem, removeItem } from '../../utils/storage';
+import { useNavigate } from 'react-router';
+import RowColumn from '../../components/RowColumn';
+import Summary from '../../components/Summary';
+import ModalEditProfile from '../../components/ModalEditProfile';
+import ModalRecord from '../../components/ModalRecord';
+import api from '../../services/api';
+import Logo from '../../assets/logo.png';
+import Avatar from '../../assets/avatar.png';
+import Exit from '../../assets/exit.png';
+import Filter from '../../assets/filter.png';
+import Arrow from '../../assets/arrow.png';
+import SectionFilter from '../../components/SectionFilter';
+import './styles.css';
 
 const Main = () => {
   const navigate = useNavigate();
@@ -28,78 +28,23 @@ const Main = () => {
     growing: false,
     descending: false,
   });
-  const [sectionFilter, setSectionFilter] = useState([
-    {
-      id: 1,
-      name: "contas",
-      value: "Contas",
-      active: false,
-    },
-    {
-      id: 2,
-      name: "deposito",
-      value: "Depósito",
-      active: false,
-    },
-    {
-      id: 3,
-      name: "contas",
-      value: "Contas",
-      active: false,
-    },
-    {
-      id: 4,
-      name: "lazer",
-      value: "Lazer",
-      active: false,
-    },
-    {
-      id: 5,
-      name: "mercado",
-      value: "Mercado",
-      active: false,
-    },
-    {
-      id: 6,
-      name: "ted",
-      value: "Ted",
-      active: false,
-    },
-    {
-      id: 7,
-      name: "compras",
-      value: "Compras",
-      active: false,
-    },
-    {
-      id: 8,
-      name: "farmacia",
-      value: "Farmácia",
-      active: false,
-    },
-    {
-      id: 9,
-      name: "pix",
-      value: "Pix",
-      active: false,
-    },
-  ]);
+  const [sectionFilter, setSectionFilter] = useState([]);
   const [modalRecord, setModalRecord] = useState({
     show: false,
     revenues: false,
     expenses: true,
-    title: "",
-    valor: "",
-    categoria_id: "",
-    data: "",
-    descricao: "",
+    title: '',
+    valor: '',
+    categoria_id: '',
+    data: '',
+    descricao: '',
   });
 
   const getUser = async () => {
     try {
-      const { data: user } = await api.get("/usuario", {
+      const { data: user } = await api.get('/usuario', {
         headers: {
-          Authorization: "Bearer " + getItem("token"),
+          Authorization: 'Bearer ' + getItem('token'),
         },
       });
 
@@ -111,9 +56,9 @@ const Main = () => {
 
   const getTransactions = async () => {
     try {
-      const { data: transactions } = await api.get("/transacao", {
+      const { data: transactions } = await api.get('/transacao', {
         headers: {
-          Authorization: "Bearer " + getItem("token"),
+          Authorization: 'Bearer ' + getItem('token'),
         },
       });
 
@@ -127,24 +72,24 @@ const Main = () => {
 
   const convertDataTransactions = (transactions) => {
     const daysOfWeek = [
-      "",
-      "Segunda-Feira",
-      "Terça-Feira",
-      "Quarta-Feira",
-      "Quinta-Feira",
-      "Sexta-Feira",
-      "Sábado",
-      "Domingo",
+      '',
+      'Segunda-Feira',
+      'Terça-Feira',
+      'Quarta-Feira',
+      'Quinta-Feira',
+      'Sexta-Feira',
+      'Sábado',
+      'Domingo',
     ];
 
     const formatTransactions = (transactions = transactions.map(
       (transaction) => {
         let format_data = transaction.data.slice(0, 10);
-        format_data = format_data.split("-");
+        format_data = format_data.split('-');
         format_data = `${format_data[2]}/${format_data[1]}/${format_data[0]}`;
 
         transaction.dia_semana =
-          daysOfWeek[Number(format(parseISO(transaction.data), "i"))];
+          daysOfWeek[Number(format(parseISO(transaction.data), 'i'))];
 
         transaction.format_data = format_data;
         transaction.valor = `${transaction.valor / 100},00`;
@@ -158,9 +103,9 @@ const Main = () => {
 
   const getSummary = async () => {
     try {
-      const { data: summary } = await api.get("/transacao/extrato", {
+      const { data: summary } = await api.get('/transacao/extrato', {
         headers: {
-          Authorization: "Bearer " + getItem("token"),
+          Authorization: 'Bearer ' + getItem('token'),
         },
       });
 
@@ -178,11 +123,11 @@ const Main = () => {
     try {
       await api.delete(`/transacao/${id}`, {
         headers: {
-          Authorization: "Bearer " + getItem("token"),
+          Authorization: 'Bearer ' + getItem('token'),
         },
       });
 
-      window.location.reload();
+      getTransactions();
     } catch (error) {
       alert(error.message);
     }
@@ -190,13 +135,21 @@ const Main = () => {
 
   const getCategories = async () => {
     try {
-      const { data: categories } = await api.get("/categoria", {
+      const { data: categories } = await api.get('/categoria', {
         headers: {
-          Authorization: "Bearer " + getItem("token"),
+          Authorization: 'Bearer ' + getItem('token'),
         },
       });
 
       setCategories(categories);
+
+      const filters = categories.map((category) => {
+        category.active = false;
+        category.name = category.descricao.toLowerCase();
+        return category;
+      });
+
+      setSectionFilter(filters);
     } catch (error) {
       alert(error.message);
     }
@@ -204,17 +157,17 @@ const Main = () => {
 
   const sendEditRecord = async () => {
     let formatValue = modalRecord.valor.toString();
-    formatValue = formatValue.replace(".", "");
-    formatValue = formatValue.replace(",", "");
+    formatValue = formatValue.replace('.', '');
+    formatValue = formatValue.replace(',', '');
     formatValue = Number(formatValue) * 100;
 
     const formatDate = `${modalRecord.format_data} ${format(
       parseISO(modalRecord.data),
-      "HH:mm:ss"
+      'HH:mm:ss'
     )}`;
 
     const data = {
-      tipo: modalRecord.revenues ? "entrada" : "saida",
+      tipo: modalRecord.revenues ? 'entrada' : 'saida',
       descricao: modalRecord.descricao,
       valor: formatValue,
       data: formatDate,
@@ -229,12 +182,24 @@ const Main = () => {
         },
         {
           headers: {
-            Authorization: "Bearer " + getItem("token"),
+            Authorization: 'Bearer ' + getItem('token'),
           },
         }
       );
 
-      window.location.reload();
+      const modal = {
+        show: false,
+        revenues: false,
+        expenses: true,
+        title: '',
+        valor: '',
+        categoria_id: '',
+        data: '',
+        descricao: '',
+      };
+
+      setModalRecord({ ...modal });
+      getTransactions();
     } catch (error) {
       alert(error.message);
     }
@@ -242,14 +207,14 @@ const Main = () => {
 
   const sendRegisterRecord = async () => {
     let formatValue = modalRecord.valor.toString();
-    formatValue = formatValue.replace(".", "");
-    formatValue = formatValue.replace(",", "");
+    formatValue = formatValue.replace('.', '');
+    formatValue = formatValue.replace(',', '');
     formatValue = Number(formatValue) * 100;
 
     const date = format(new Date(), "'T'HH:mm:ss.SSS'Z'");
 
     const data = {
-      tipo: modalRecord.revenues ? "entrada" : "saida",
+      tipo: modalRecord.revenues ? 'entrada' : 'saida',
       descricao: modalRecord.descricao,
       valor: formatValue,
       data: modalRecord.format_data + date,
@@ -258,18 +223,30 @@ const Main = () => {
 
     try {
       await api.post(
-        "/transacao",
+        '/transacao',
         {
           ...data,
         },
         {
           headers: {
-            Authorization: "Bearer " + getItem("token"),
+            Authorization: 'Bearer ' + getItem('token'),
           },
         }
       );
 
-      window.location.reload();
+      const modal = {
+        show: false,
+        revenues: false,
+        expenses: true,
+        title: '',
+        valor: '',
+        categoria_id: '',
+        data: '',
+        descricao: '',
+      };
+
+      setModalRecord({ ...modal });
+      getTransactions();
     } catch (error) {
       alert(error.message);
     }
@@ -278,11 +255,11 @@ const Main = () => {
   const sendRecord = async (e, id) => {
     e.preventDefault();
 
-    if (modalRecord.title === "Editar Registro") {
+    if (modalRecord.title === 'Editar Registro') {
       sendEditRecord();
     }
 
-    if (modalRecord.title === "Adicionar Registro") {
+    if (modalRecord.title === 'Adicionar Registro') {
       sendRegisterRecord();
     }
   };
@@ -294,8 +271,8 @@ const Main = () => {
       setOrdination({ ...ordination, growing: true });
 
       localTransactions.sort((a, b) => {
-        a = a.format_data.split("/").reverse().join("");
-        b = b.format_data.split("/").reverse().join("");
+        a = a.format_data.split('/').reverse().join('');
+        b = b.format_data.split('/').reverse().join('');
 
         return a > b ? 1 : a < b ? -1 : 0;
       });
@@ -305,8 +282,8 @@ const Main = () => {
       setOrdination({ growing: false, descending: true });
 
       localTransactions.sort((a, b) => {
-        a = a.format_data.split("/").reverse().join("");
-        b = b.format_data.split("/").reverse().join("");
+        a = a.format_data.split('/').reverse().join('');
+        b = b.format_data.split('/').reverse().join('');
         return a < b ? 1 : a > b ? -1 : 0;
       });
     }
@@ -315,8 +292,8 @@ const Main = () => {
       setOrdination({ growing: true, descending: false });
 
       localTransactions.sort((a, b) => {
-        a = a.format_data.split("/").reverse().join("");
-        b = b.format_data.split("/").reverse().join("");
+        a = a.format_data.split('/').reverse().join('');
+        b = b.format_data.split('/').reverse().join('');
         return a > b ? 1 : a < b ? -1 : 0;
       });
     }
@@ -325,8 +302,8 @@ const Main = () => {
   };
 
   const handleExit = () => {
-    removeItem("token");
-    navigate("/");
+    removeItem('token');
+    navigate('/');
   };
 
   useEffect(() => {
@@ -339,12 +316,7 @@ const Main = () => {
   return (
     <div className="container-main">
       <header className="header">
-        <img
-          className=" cursor-pointer"
-          onClick={() => navigate("/")}
-          src={Logo}
-          alt="Ícone da logo"
-        />
+        <img className=" cursor-pointer" src={Logo} alt="Ícone da logo" />
         <div className="profile">
           <img
             className=" cursor-pointer"
@@ -412,7 +384,7 @@ const Main = () => {
             <tbody>
               {transactions.map((transaction) => {
                 transaction.color =
-                  transaction.tipo === "entrada" ? "#7b61ff" : "#fa8c10";
+                  transaction.tipo === 'entrada' ? '#7b61ff' : '#fa8c10';
 
                 return (
                   transaction.show && (

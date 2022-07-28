@@ -1,5 +1,5 @@
-import BtnFilter from "../BtnFilter";
-import "./styles.css";
+import BtnFilter from '../BtnFilter';
+import './styles.css';
 
 const SectionFilter = ({
   sectionFilter,
@@ -10,9 +10,9 @@ const SectionFilter = ({
   const handleClickClean = () => {
     let localFilter = [...sectionFilter];
 
-    localFilter = localFilter.map((element) => {
-      element.active = false;
-      return element;
+    localFilter = localFilter.map((filter) => {
+      filter.active = false;
+      return filter;
     });
 
     setSectionFilter([...localFilter]);
@@ -24,6 +24,8 @@ const SectionFilter = ({
     let filters = sectionFilter.filter((e) => {
       return e.active && e.value;
     });
+
+    console.log(filters);
 
     filters = filters.map((filter) => {
       return filter.value;
@@ -58,7 +60,7 @@ const SectionFilter = ({
             <BtnFilter
               key={filter.id}
               name={filter.name}
-              value={filter.value}
+              descricao={filter.descricao}
               active={filter.active}
               id={filter.id}
               sectionFilter={sectionFilter}

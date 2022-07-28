@@ -4,7 +4,7 @@ import './styles.css';
 
 const BtnFilter = ({
   name,
-  value,
+  descricao,
   active,
   id,
   sectionFilter,
@@ -12,14 +12,13 @@ const BtnFilter = ({
 }) => {
   const handleClickBtnFilter = (e) => {
     let localFilter = [...sectionFilter];
-    const name = e.target.name;
 
-    localFilter = localFilter.map((element) => {
-      if (element.id === id) {
-        element.active = !element.active;
+    localFilter = localFilter.map((filter) => {
+      if (filter.id === id) {
+        filter.active = !filter.active;
       }
 
-      return element;
+      return filter;
     });
 
     setSectionFilter([...localFilter]);
@@ -29,7 +28,7 @@ const BtnFilter = ({
     <button
       className="filter__type"
       name={name}
-      value={value}
+      descricao={descricao}
       onClick={(e) => handleClickBtnFilter(e)}
       style={
         active
@@ -37,7 +36,7 @@ const BtnFilter = ({
           : { background: '#FAFAFA', color: '#000000' }
       }
     >
-      {value}
+      {descricao}
       <img src={active ? CloseWhite : More} alt="Botão adicionar" />
     </button>
   );

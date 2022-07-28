@@ -19,10 +19,9 @@ const CardLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const localWarning = { ...warning };
 
     try {
-      const localWarning = { ...warning };
-
       const response = await api.post('/login', {
         email: form.email,
         senha: form.password,
@@ -41,14 +40,11 @@ const CardLogin = () => {
         navigate('/main');
       }, 1000);
     } catch (error) {
-      const localWarning = { ...warning };
-
       localWarning.active = true;
       localWarning.content = error.response.data;
       localWarning.tipe = 'error';
 
       setWarning({ ...localWarning });
-      console.log(error);
     }
   };
 
