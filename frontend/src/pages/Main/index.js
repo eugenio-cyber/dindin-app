@@ -128,6 +128,7 @@ const Main = () => {
       });
 
       getTransactions();
+      getSummary();
     } catch (error) {
       alert(error.message);
     }
@@ -144,9 +145,14 @@ const Main = () => {
       setCategories(categories);
 
       const filters = categories.map((category) => {
-        category.active = false;
-        category.name = category.descricao.toLowerCase();
-        return category;
+        const transformFilter = {
+          id: category.id,
+          active: false,
+          description: category.descricao,
+          name: category.descricao.toLowerCase(),
+        };
+
+        return transformFilter;
       });
 
       setSectionFilter(filters);
@@ -200,6 +206,7 @@ const Main = () => {
 
       setModalRecord({ ...modal });
       getTransactions();
+      getSummary();
     } catch (error) {
       alert(error.message);
     }
@@ -247,6 +254,7 @@ const Main = () => {
 
       setModalRecord({ ...modal });
       getTransactions();
+      getSummary();
     } catch (error) {
       alert(error.message);
     }

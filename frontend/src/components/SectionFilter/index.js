@@ -22,13 +22,11 @@ const SectionFilter = ({
     const localTransactions = [...transactions];
 
     let filters = sectionFilter.filter((e) => {
-      return e.active && e.value;
+      return e.active;
     });
 
-    console.log(filters);
-
     filters = filters.map((filter) => {
-      return filter.value;
+      return filter.description;
     });
 
     if (filters.length === 0) {
@@ -40,7 +38,7 @@ const SectionFilter = ({
 
     for (let index = 0; index < localTransactions.length; index++) {
       for (let i = 0; i < filters.length; i++) {
-        if (filters.includes(localTransactions[index].categoria_nome)) {
+        if (filters.includes(localTransactions[index].categoria_descricao)) {
           localTransactions[index].show = true;
         } else {
           localTransactions[index].show = false;
@@ -60,7 +58,7 @@ const SectionFilter = ({
             <BtnFilter
               key={filter.id}
               name={filter.name}
-              descricao={filter.descricao}
+              description={filter.description}
               active={filter.active}
               id={filter.id}
               sectionFilter={sectionFilter}

@@ -1,5 +1,5 @@
 .container-main {
-  height: 100vh;
+  min-height: 100vh;
 
   background: linear-gradient(90.23deg, #05ede3 0.02%, #645ffb 99.63%);
 }
@@ -26,7 +26,7 @@
 
   min-height: calc(100vh - 129px);
   margin-top: 32px;
-  padding: 55px 100px 0 105px;
+  padding: 55px 100px 100px 105px;
   border-radius: 60px 60px 0px 0px;
 
   background: var(--background-white);

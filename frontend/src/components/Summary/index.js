@@ -1,12 +1,6 @@
-import "./styles.css";
+import './styles.css';
 
-const Summary = ({
-  revenues,
-  expenses,
-  balance,
-  setModalRecord,
-  modalRecord,
-}) => {
+const Summary = ({ revenues, expenses, balance, setModalRecord }) => {
   return (
     <section className="summary">
       <div className="summary__body">
@@ -29,14 +23,14 @@ const Summary = ({
         onClick={() =>
           setModalRecord({
             show: true,
-            title: "Adicionar Registro",
+            title: 'Adicionar Registro',
             revenues: false,
             expenses: true,
-            valor: "",
-            categoria_id: "",
-            data: "",
-            format_data: "",
-            descricao: "",
+            valor: '',
+            categoria_id: '',
+            data: '',
+            format_data: '',
+            descricao: '',
           })
         }
       >

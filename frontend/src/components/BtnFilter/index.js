@@ -4,7 +4,7 @@ import './styles.css';
 
 const BtnFilter = ({
   name,
-  descricao,
+  description,
   active,
   id,
   sectionFilter,
@@ -28,7 +28,7 @@ const BtnFilter = ({
     <button
       className="filter__type"
       name={name}
-      descricao={descricao}
+      // description={description}
       onClick={(e) => handleClickBtnFilter(e)}
       style={
         active
@@ -36,7 +36,7 @@ const BtnFilter = ({
           : { background: '#FAFAFA', color: '#000000' }
       }
     >
-      {descricao}
+      {description}
       <img src={active ? CloseWhite : More} alt="Botão adicionar" />
     </button>
   );
