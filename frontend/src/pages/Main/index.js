@@ -421,6 +421,7 @@ const Main = () => {
       {showModalEditProfile && (
         <ModalEditProfile
           setShowModalEditProfile={setShowModalEditProfile}
+          showModalEditProfile={showModalEditProfile}
           currentUser={currentUser}
         />
       )}

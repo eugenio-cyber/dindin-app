@@ -1,14 +1,20 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { getItem } from '../../utils/storage';
 import api from '../../services/api';
 import Input from '../Input';
 import Close from '../../assets/close.png';
 import './styles.css';
 
-const ModalEditProfile = ({ setShowModalEditProfile, currentUser }) => {
-  const navigate = useNavigate();
-  const [showWarningPassword, setShowWarningPassword] = useState(false);
+const ModalEditProfile = ({
+  setShowModalEditProfile,
+  showModalEditProfile,
+  currentUser,
+}) => {
+  const [showWarningPassword, setShowWarningPassword] = useState({
+    active: false,
+    text: '',
+    tipe: '',
+  });
   const [form, setForm] = useState({
     name: currentUser.nome,
     email: currentUser.email,
@@ -21,12 +27,14 @@ const ModalEditProfile = ({ setShowModalEditProfile, currentUser }) => {
 
     try {
       if (form.password !== form.confirmPassword) {
-        return setShowWarningPassword(true);
+        return setShowWarningPassword({
+          active: true,
+          text: 'As senhas precisam ser iguais.',
+          tipe: 'error',
+        });
       }
 
-      setShowWarningPassword(false);
-
-      const response = await api.put(
+      await api.put(
         '/usuario',
         {
           nome: form.name,
@@ -40,7 +48,16 @@ const ModalEditProfile = ({ setShowModalEditProfile, currentUser }) => {
         }
       );
 
-      window.location.reload();
+      setShowWarningPassword({
+        active: true,
+        text: 'Dados alterados com sucesso!',
+        tipe: 'accepted',
+      });
+      setForm({ ...form, password: '', confirmPassword: '' });
+
+      setTimeout(() => {
+        setShowModalEditProfile(!showModalEditProfile);
+      }, 1000);
     } catch (error) {
       alert(error);
     }
@@ -91,8 +108,17 @@ const ModalEditProfile = ({ setShowModalEditProfile, currentUser }) => {
               id="confirmPassword"
             />
             {showWarningPassword && (
-              <span className="card__warning">
-                As senhas precisam ser iguais.
+              <span
+                className="card__warning"
+                style={{
+                  color: `var(${
+                    showWarningPassword.tipe === 'error'
+                      ? '--message-error'
+                      : '--message-accepted'
+                  })`,
+                }}
+              >
+                {showWarningPassword.text}
               </span>
             )}
           </div>
