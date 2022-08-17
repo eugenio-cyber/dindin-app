@@ -38,7 +38,7 @@ const SectionFilter = ({
 
     for (let index = 0; index < localTransactions.length; index++) {
       for (let i = 0; i < filters.length; i++) {
-        if (filters.includes(localTransactions[index].categoria_descricao)) {
+        if (filters.includes(localTransactions[index].categoria_nome)) {
           localTransactions[index].show = true;
         } else {
           localTransactions[index].show = false;

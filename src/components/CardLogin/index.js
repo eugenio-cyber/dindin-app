@@ -41,7 +41,7 @@ const CardLogin = () => {
       }, 1000);
     } catch (error) {
       localWarning.active = true;
-      localWarning.content = error.response.data;
+      localWarning.content = error.response.data.mensagem;
       localWarning.tipe = 'error';
 
       setWarning({ ...localWarning });

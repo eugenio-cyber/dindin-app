@@ -157,7 +157,7 @@ const Main = () => {
 
       setSectionFilter(filters);
     } catch (error) {
-      alert(error.message);
+      console.log(error.message);
     }
   };
 
