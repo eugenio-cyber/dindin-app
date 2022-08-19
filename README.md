@@ -4,21 +4,21 @@
   
 <br>
 <p align="center">
-<img src="https://img.shields.io/badge/status-em%20desenvolvimento-orange?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/status-concluído-green?style=for-the-badge"/>
 </p>
 <br>
 
 ## 🔗 Quer acessar o projeto?
 
-[Clique aqui para ver]()
+[Clique aqui para ver](https://react-api-dindin.vercel.app/)
 
 ## 🏹 Qual o objetivo do projeto?
 
-O objetivo desse projeto...
+O objetivo desse projeto foi o desenvolvimento duma aplicação para controles de finanças pessoais.
 
 ## 💻 Como usar?
 
-Para usar você...
+Para usar você precisará se cadastrar na página de cadastro adicionando os dados necessários, depois de ter se cadsatrado no sistema você está habilitado para fazer o login. Dentro da aplicação você tem as possibilidades de: cadastrar uma nova transação, editar uma transação, excluir uma transação, ver a lista de transações, ordenar a tabela por data, ter um resumo das transações (valor das entradas, saídas e saldo), filtrar as transações por categoria, editar o seu perfil e deslogar.
 
 ## 🛠️ Ferramentas utilizadas?
 
