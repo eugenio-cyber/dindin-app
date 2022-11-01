@@ -47,4 +47,4 @@ Para usar você precisará se cadastrar na página de cadastro adicionando os da
 
 ## 💬 Feedback
 
-Envie um email para esse endereço <eugenio3@email.com> para dar um feedback, sugerir alguma mudança ou dar uma opnião sobre o projeto.
+Envie um email para esse endereço <wesleyeugenio3@gmail.com> para dar um feedback, sugerir alguma mudança ou dar uma opnião sobre o projeto.
