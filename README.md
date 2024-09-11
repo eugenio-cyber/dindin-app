@@ -10,7 +10,7 @@
 
 ## 🔗 Quer acessar o projeto?
 
-Clique [aqui](https://react-api-dindin.vercel.app/) para acessar o projeto.
+Clique [aqui](https://reactjs-api-dindin.vercel.app) para acessar o projeto.
 
 ## 🏹 Qual o objetivo do projeto?
 
