@@ -64,7 +64,7 @@ const createTransaction = async (req, res) => {
   if (!type) {
     return res.status(400).json({ message: "O campo tipo é obrigatório." });
   }
-  if (type != "entrada" && type != "saida") {
+  if (type != "income" && type != "expense") {
     return res.status(400).json({ message: "Tipo de transação inválida." });
   }
 
@@ -81,7 +81,7 @@ const createTransaction = async (req, res) => {
     ]);
 
     if (rowCount === 0) {
-      return res.status(400).json("Não foi possível cadastrar a trasação.");
+      return res.status(400).json("Não foi possível cadastrar a transação.");
     }
 
     const queryGetTransaction = `SELECT * FROM transactions where user_id = $1 order by id DESC LIMIT 1`;
@@ -174,11 +174,12 @@ const deleteTransaction = async (req, res) => {
   }
 };
 
-const resumeTransactions = async (req, res) => {
+const transactionsSummary = async (req, res) => {
   const { user } = req;
   const resume = {
-    entrada: 0,
-    saida: 0,
+    incomes: 0,
+    expenses: 0,
+    balance: 0,
   };
 
   try {
@@ -193,14 +194,14 @@ const resumeTransactions = async (req, res) => {
     }
 
     for (let item of rows) {
-      if (item.type == "entrada") {
-        resume.entrada += item.value;
+      if (item.type == "income") {
+        resume.incomes += item.value;
       }
     }
 
     for (let item of rows) {
-      if (item.type == "saida") {
-        resume.saida += item.value;
+      if (item.type == "expense") {
+        resume.expenses += item.value;
       }
     }
 
@@ -216,5 +217,5 @@ module.exports = {
   createTransaction,
   updateTransaction,
   deleteTransaction,
-  resumeTransactions,
+  transactionsSummary,
 };

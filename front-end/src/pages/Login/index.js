@@ -12,7 +12,7 @@ const Login = () => {
     const token = getItem("token");
 
     if (token) {
-      navigate("/main");
+      navigate("/home");
     }
   }, [navigate]);
 

@@ -23,16 +23,16 @@ const ModalRecord = ({
         </div>
         <div className='modal-record__btns'>
           <button
-            className='modal-record__btn-revenues'
+            className='modal-record__btn-incomes'
             style={
-              modalRecord.revenues
+              modalRecord.incomes
                 ? { background: "#3a9ff1" }
                 : { background: "#b9b9b9" }
             }
             onClick={() =>
               setModalRecord({
                 ...modalRecord,
-                revenues: true,
+                incomes: true,
                 expenses: false,
               })
             }
@@ -50,7 +50,7 @@ const ModalRecord = ({
               setModalRecord({
                 ...modalRecord,
                 expenses: true,
-                revenues: false,
+                incomes: false,
               })
             }
           >

@@ -31,7 +31,7 @@ const Main = () => {
   const [sectionFilter, setSectionFilter] = useState([]);
   const [modalRecord, setModalRecord] = useState({
     show: false,
-    revenues: false,
+    incomes: false,
     expenses: true,
     title: "",
     value: "",
@@ -110,9 +110,9 @@ const Main = () => {
         },
       });
 
-      summary.saldo = `${(summary.entrada - summary.saida) / 100},00`;
-      summary.entrada = `${summary.entrada / 100},00`;
-      summary.saida = `${summary.saida / 100},00`;
+      summary.balance = `${(summary.incomes - summary.expenses) / 100},00`;
+      summary.incomes = `${summary.incomes / 100},00`;
+      summary.expenses = `${summary.expenses / 100},00`;
 
       setSummary(summary);
     } catch (error) {
@@ -177,7 +177,7 @@ const Main = () => {
       await api.put(
         `/transacao/${modalRecord.transaction}`,
         {
-          type: modalRecord.revenues ? "entrada" : "saida",
+          type: modalRecord.incomes ? "income" : "expense",
           description: modalRecord.description,
           value: formatValue,
           transaction_date: formatDate,
@@ -192,7 +192,7 @@ const Main = () => {
 
       const modal = {
         show: false,
-        revenues: false,
+        incomes: false,
         expenses: true,
         title: "",
         value: "",
@@ -220,7 +220,7 @@ const Main = () => {
       await api.post(
         "/transacao",
         {
-          type: modalRecord.revenues ? "entrada" : "saida",
+          type: modalRecord.incomes ? "income" : "expense",
           description: modalRecord.description,
           value: formatValue,
           transaction_date: modalRecord.format_data + date,
@@ -235,7 +235,7 @@ const Main = () => {
 
       const modal = {
         show: false,
-        revenues: false,
+        incomes: false,
         expenses: true,
         title: "",
         value: "",
@@ -384,7 +384,7 @@ const Main = () => {
             <tbody>
               {transactions.map((transaction) => {
                 transaction.color =
-                  transaction.type === "entrada" ? "#7b61ff" : "#fa8c10";
+                  transaction.type === "income" ? "#7b61ff" : "#fa8c10";
 
                 return (
                   transaction.show && (
@@ -403,9 +403,9 @@ const Main = () => {
         </div>
 
         <Summary
-          revenues={summary.entrada}
-          expenses={summary.saida}
-          balance={summary.saldo}
+          incomes={summary.incomes}
+          expenses={summary.expenses}
+          balance={summary.balance}
           setModalRecord={setModalRecord}
           modalRecord={modalRecord}
         />

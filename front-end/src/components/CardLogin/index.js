@@ -36,7 +36,7 @@ const CardLogin = () => {
       setWarning({ ...localWarning });
 
       setTimeout(() => {
-        navigate("/main");
+        navigate("/home");
       }, 1000);
     } catch (error) {
       localWarning.active = true;

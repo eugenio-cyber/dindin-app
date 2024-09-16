@@ -13,7 +13,7 @@ routes.get("/user", users.detailUser);
 routes.put("/user", users.updateUser);
 routes.get("/categoria", category.listCategories);
 routes.get("/transacao", transactions.readTransactions);
-routes.get("/transacao/extrato", transactions.resumeTransactions);
+routes.get("/transacao/extrato", transactions.transactionsSummary);
 routes.get("/transacao/:id", transactions.findTransaction);
 routes.post("/transacao", transactions.createTransaction);
 routes.put("/transacao/:id", transactions.updateTransaction);

@@ -1,13 +1,13 @@
 import "./styles.css";
 
-const Summary = ({ revenues, expenses, balance, setModalRecord }) => {
+const Summary = ({ incomes, expenses, balance, setModalRecord }) => {
   return (
     <section className='summary'>
       <div className='summary__body'>
         <h3 className='summary__title'>Resumo</h3>
-        <div className='revenues'>
-          <span className='revenues__subtitle'>Entradas</span>
-          <span className='revenues__value'>R$ {revenues}</span>
+        <div className='incomes'>
+          <span className='incomes__subtitle'>Entradas</span>
+          <span className='incomes__value'>R$ {incomes}</span>
         </div>
         <div className='expenses'>
           <span className='expenses__subtitle'>Saídas</span>
@@ -24,7 +24,7 @@ const Summary = ({ revenues, expenses, balance, setModalRecord }) => {
           setModalRecord({
             show: true,
             title: "Adicionar Registro",
-            revenues: false,
+            incomes: false,
             expenses: true,
             value: "",
             category_id: "",

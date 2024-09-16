@@ -41,7 +41,7 @@
   margin-bottom: 38px;
 }
 
-.modal-record__btn-revenues,
+.modal-record__btn-incomes,
 .modal-record__btn-expenses {
   height: 60px;
   width: 245px;
@@ -55,7 +55,7 @@
   color: #ffffff;
 }
 
-.modal-record__btn-revenues {
+.modal-record__btn-incomes {
   border-radius: 10px 0px 0px 10px;
 }
 

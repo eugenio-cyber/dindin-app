@@ -16,8 +16,8 @@ const RowColumn = ({ deleteTransaction, transaction, setModalRecord }) => {
 
     setModalRecord({
       show: true,
-      revenues: localTransaction.type === "entrada" ? true : false,
-      expenses: localTransaction.type === "saida" ? true : false,
+      incomes: localTransaction.type === "income" ? true : false,
+      expenses: localTransaction.type === "expense" ? true : false,
       title: "Editar Registro",
       value: localTransaction.value,
       category_id: localTransaction.category_id,
