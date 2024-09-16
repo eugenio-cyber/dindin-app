@@ -1,6 +1,15 @@
-import './styles.css';
+import "./styles.css";
 
-const Input = ({ label, type, id, value, setState, state }) => {
+const Input = ({
+  label,
+  type,
+  id,
+  value,
+  placeholder,
+  required,
+  setState,
+  state,
+}) => {
   const handleChangeInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -9,18 +18,19 @@ const Input = ({ label, type, id, value, setState, state }) => {
   };
 
   return (
-    <div className="input-area">
-      <label className="input-area__label" htmlFor={id}>
+    <div className='input-area'>
+      <label className='input-area__label' htmlFor={id}>
         {label}
       </label>
       <input
-        className="input-area__input"
+        className='input-area__input'
         type={type}
         id={id}
         name={id}
         value={value}
+        placeholder={placeholder}
         onChange={(e) => handleChangeInput(e)}
-        required
+        required={required}
       />
     </div>
   );
