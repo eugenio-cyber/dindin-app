@@ -10,10 +10,6 @@ const RowColumn = ({ deleteTransaction, transaction, setModalRecord }) => {
     const localTransaction = { ...transaction };
     const date = localTransaction.format_data.split("/");
 
-    localTransaction.value = localTransaction.value.replace(".", "");
-    localTransaction.value = localTransaction.value.replace(",", "");
-    localTransaction.value = localTransaction.value / 100;
-
     setModalRecord({
       show: true,
       incomes: localTransaction.type === "income" ? true : false,
@@ -33,7 +29,7 @@ const RowColumn = ({ deleteTransaction, transaction, setModalRecord }) => {
       <td className='table__date'>{transaction.format_data}</td>
       <td className='table__text'>{transaction.dia_semana}</td>
       <td className='table__text'>{transaction.description}</td>
-      <td className='table__text'>{transaction.categoria_nome}</td>
+      <td className='table__text'>{transaction.category_description}</td>
       <td className='table__value' style={{ color: transaction.color }}>
         {transaction.value}
       </td>

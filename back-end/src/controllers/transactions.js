@@ -195,13 +195,13 @@ const transactionsSummary = async (req, res) => {
 
     for (let item of rows) {
       if (item.type == "income") {
-        resume.incomes += item.value;
+        resume.incomes += Number(item.value);
       }
     }
 
     for (let item of rows) {
       if (item.type == "expense") {
-        resume.expenses += item.value;
+        resume.expenses += Number(item.value);
       }
     }
 

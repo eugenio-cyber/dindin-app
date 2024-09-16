@@ -93,7 +93,6 @@ const Main = () => {
           ];
 
         transaction.format_data = format_data;
-        transaction.value = `${transaction.value / 100},00`;
         transaction.show = true;
         return transaction;
       }
@@ -110,11 +109,10 @@ const Main = () => {
         },
       });
 
-      summary.balance = `${(summary.incomes - summary.expenses) / 100},00`;
-      summary.incomes = `${summary.incomes / 100},00`;
-      summary.expenses = `${summary.expenses / 100},00`;
-
-      setSummary(summary);
+      setSummary({
+        ...summary,
+        balance: (summary.incomes - summary.expenses).toFixed(2),
+      });
     } catch (error) {
       console.log(error.message);
     }
@@ -211,10 +209,6 @@ const Main = () => {
 
   const sendRegisterRecord = async () => {
     const date = format(new Date(), "'T'HH:mm:ss.SSS'Z'");
-    let formatValue = modalRecord.value.toString();
-    formatValue = formatValue.replace(".", "");
-    formatValue = formatValue.replace(",", "");
-    formatValue = Number(formatValue) * 100;
 
     try {
       await api.post(
@@ -222,7 +216,7 @@ const Main = () => {
         {
           type: modalRecord.incomes ? "income" : "expense",
           description: modalRecord.description,
-          value: formatValue,
+          value: modalRecord.value,
           transaction_date: modalRecord.format_data + date,
           category_id: modalRecord.category_id,
         },
@@ -324,8 +318,11 @@ const Main = () => {
             alt='Imagem profile'
             onClick={() => setShowModalEditProfile(!showModalEditProfile)}
           />
-          <span className='profile__name cursor-pointer'>
-            {currentUser.nome}
+          <span
+            className='profile__name cursor-pointer'
+            onClick={() => setShowModalEditProfile(!showModalEditProfile)}
+          >
+            {currentUser.name}
           </span>
           <img
             className=' cursor-pointer'
@@ -415,6 +412,7 @@ const Main = () => {
           setShowModalEditProfile={setShowModalEditProfile}
           showModalEditProfile={showModalEditProfile}
           currentUser={currentUser}
+          getUser={getUser}
         />
       )}
       {modalRecord.show && (
