@@ -1,6 +1,6 @@
-import More from '../../assets/more.png';
-import CloseWhite from '../../assets/close-white.png';
-import './styles.css';
+import More from "../../assets/more.png";
+import CloseWhite from "../../assets/close-white.png";
+import "./styles.css";
 
 const BtnFilter = ({
   name,
@@ -26,18 +26,17 @@ const BtnFilter = ({
 
   return (
     <button
-      className="filter__type"
+      className='filter__type'
       name={name}
-      // description={description}
       onClick={(e) => handleClickBtnFilter(e)}
       style={
         active
-          ? { background: '#7978D9', color: '#FFFFFF' }
-          : { background: '#FAFAFA', color: '#000000' }
+          ? { background: "#7978D9", color: "#FFFFFF" }
+          : { background: "#FAFAFA", color: "#000000" }
       }
     >
       {description}
-      <img src={active ? CloseWhite : More} alt="Botão adicionar" />
+      <img src={active ? CloseWhite : More} alt='Botão adicionar' />
     </button>
   );
 };
