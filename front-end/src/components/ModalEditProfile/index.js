@@ -9,6 +9,7 @@ const ModalEditProfile = ({
   setShowModalEditProfile,
   showModalEditProfile,
   currentUser,
+  getUser,
 }) => {
   const [showWarningPassword, setShowWarningPassword] = useState({
     active: false,
@@ -16,7 +17,7 @@ const ModalEditProfile = ({
     tipe: "",
   });
   const [form, setForm] = useState({
-    name: currentUser.nome,
+    name: currentUser.name,
     email: currentUser.email,
     password: "",
     confirmPassword: "",
@@ -37,9 +38,9 @@ const ModalEditProfile = ({
       await api.put(
         "/user",
         {
-          nome: form.name,
+          name: form.name,
           email: form.email,
-          senha: form.password,
+          password: form.password,
         },
         {
           headers: {
@@ -54,6 +55,7 @@ const ModalEditProfile = ({
         tipe: "accepted",
       });
       setForm({ ...form, password: "", confirmPassword: "" });
+      getUser();
 
       setTimeout(() => {
         setShowModalEditProfile(!showModalEditProfile);
