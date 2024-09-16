@@ -56,7 +56,7 @@ const Main = () => {
 
   const getTransactions = async () => {
     try {
-      const { data: transactions } = await api.get("/transacao", {
+      const { data: transactions } = await api.get("/transaction", {
         headers: {
           Authorization: "Bearer " + getItem("token"),
         },
@@ -104,7 +104,7 @@ const Main = () => {
 
   const getSummary = async () => {
     try {
-      const { data: summary } = await api.get("/transacao/extrato", {
+      const { data: summary } = await api.get("/transaction/summary", {
         headers: {
           Authorization: "Bearer " + getItem("token"),
         },
@@ -122,7 +122,7 @@ const Main = () => {
 
   const deleteTransaction = async (id) => {
     try {
-      await api.delete(`/transacao/${id}`, {
+      await api.delete(`/transaction/${id}`, {
         headers: {
           Authorization: "Bearer " + getItem("token"),
         },
@@ -137,7 +137,7 @@ const Main = () => {
 
   const getCategories = async () => {
     try {
-      const { data: categories } = await api.get("/categoria", {
+      const { data: categories } = await api.get("/category", {
         headers: {
           Authorization: "Bearer " + getItem("token"),
         },
@@ -175,7 +175,7 @@ const Main = () => {
 
     try {
       await api.put(
-        `/transacao/${modalRecord.transaction}`,
+        `/transaction/${modalRecord.transaction}`,
         {
           type: modalRecord.incomes ? "income" : "expense",
           description: modalRecord.description,
@@ -218,7 +218,7 @@ const Main = () => {
 
     try {
       await api.post(
-        "/transacao",
+        "/transaction",
         {
           type: modalRecord.incomes ? "income" : "expense",
           description: modalRecord.description,
