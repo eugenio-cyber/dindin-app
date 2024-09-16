@@ -1,5 +1,5 @@
-import BtnFilter from '../BtnFilter';
-import './styles.css';
+import BtnFilter from "../BtnFilter";
+import "./styles.css";
 
 const SectionFilter = ({
   sectionFilter,
@@ -38,7 +38,7 @@ const SectionFilter = ({
 
     for (let index = 0; index < localTransactions.length; index++) {
       for (let i = 0; i < filters.length; i++) {
-        if (filters.includes(localTransactions[index].categoria_nome)) {
+        if (filters.includes(localTransactions[index].category_description)) {
           localTransactions[index].show = true;
         } else {
           localTransactions[index].show = false;
@@ -50,9 +50,9 @@ const SectionFilter = ({
   };
 
   return (
-    <section className="filter">
-      <span className="filter__title">Categoria</span>
-      <div className="filter__filters">
+    <section className='filter'>
+      <span className='filter__title'>Categoria</span>
+      <div className='filter__filters'>
         {sectionFilter.map((filter) => {
           return (
             <BtnFilter
@@ -67,15 +67,15 @@ const SectionFilter = ({
           );
         })}
       </div>
-      <div className="filter__clean-apply">
+      <div className='filter__clean-apply'>
         <button
-          className="filter__btn-clean"
+          className='filter__btn-clean'
           onClick={() => handleClickClean()}
         >
           Limpar Filtros
         </button>
         <button
-          className="filter__btn-apply"
+          className='filter__btn-apply'
           onClick={() => handleClickApply()}
         >
           Aplicar Filtros
