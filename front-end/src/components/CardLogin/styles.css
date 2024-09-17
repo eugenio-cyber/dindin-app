@@ -1,0 +1,47 @@
+.card-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 6px;
+  padding: 40px;
+  background: var(--background-white);
+}
+
+.card-login__title {
+  margin-bottom: 48px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 33px;
+  color: var(--purple-primary);
+}
+
+.card-login__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+  margin-bottom: 43px;
+}
+
+.card-login__btn {
+  height: 52px;
+  width: 449px;
+  border-radius: 5px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--text-white);
+  background: var(--purple-primary);
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .card-login {
+    width: 42vw;
+  }
+
+  .card-login__btn {
+    width: 34vw;
+  }
+}

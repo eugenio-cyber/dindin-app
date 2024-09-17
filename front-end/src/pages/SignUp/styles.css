@@ -1,0 +1,70 @@
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 62px;
+  font-family: "Rubik", sans-serif;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 6px;
+  padding: 40px;
+  background: var(--background-white);
+}
+
+.card__title {
+  margin-bottom: 42px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 33px;
+  color: var(--purple-primary);
+}
+
+.card__form {
+  margin-bottom: 8px;
+}
+
+.card__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+  margin-bottom: 38px;
+}
+
+.card__btn {
+  height: 53px;
+  width: 449px;
+  border-radius: 5px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--text-white);
+  background: var(--purple-primary);
+}
+
+.card__register,
+.card__register span {
+  font-family: "Lato", sans-serif;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--purple-secondary);
+}
+
+.card__register span {
+  padding-left: 4px;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .signup {
+    margin-top: 6vh;
+  }
+}
