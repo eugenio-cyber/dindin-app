@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const secret = require("../credentials");
+const { secretKey } = require("../credentials");
 const connection = require("../connection");
 
 const verifyLogin = async (req, res, next) => {
@@ -11,7 +11,7 @@ const verifyLogin = async (req, res, next) => {
 
   try {
     const token = authorization.replace("Bearer", "").trim();
-    const { id } = jwt.verify(token, secret.secretKey);
+    const { id } = jwt.verify(token, secretKey);
     const query = "select * from users where id = $1";
     const { rows, rowCount } = await connection.query(query, [id]);
 

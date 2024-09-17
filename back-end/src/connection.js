@@ -1,12 +1,12 @@
 const { Pool } = require("pg");
-const data = require("./credentials");
+const { user, host, database, password, port } = require("./credentials");
 
 const pool = new Pool({
-  user: data.user,
-  host: "localhost",
-  database: "dindin",
-  password: data.password,
-  port: 5432,
+  user: user,
+  host: host,
+  database: database,
+  password: password,
+  port: port,
 });
 
 const query = (text, param) => {

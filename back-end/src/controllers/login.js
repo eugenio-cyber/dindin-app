@@ -1,7 +1,7 @@
 const connection = require("../connection");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const data = require("../credentials");
+const { secretKey } = require("../credentials");
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -21,7 +21,6 @@ const login = async (req, res) => {
     }
 
     const user = rows[0];
-
     const passwordVerified = await bcrypt.compare(password, user.password);
 
     if (!passwordVerified) {
@@ -36,7 +35,7 @@ const login = async (req, res) => {
         name: user.name,
         email: user.email,
       },
-      data.secretKey,
+      secretKey,
       { expiresIn: "2d" }
     );
 
